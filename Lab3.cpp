@@ -7,18 +7,8 @@ void zad1()
 	int x = 0, result;
 	cout << "Введите X:";
 	cin >> x;
-	if (x > 0)
-	{
-		result = x - 12;
-	}
-	else if (x == 0)
-	{
-		result = 5;
-	}
-	else
-	{
-		result = (int)pow(x, 2);
-	}
+
+	result = x > 0 ? x - 12: x == 0 ? 5: (int)pow(x, 2);
 	cout<<"x = " << result;
 }
 void zad2()
@@ -150,33 +140,23 @@ void zad3()
 }
 void zad4()
 {
-	int bolka = 0;
-	double result = 0, bonus;
-	cout << "Прибавить число ? 0 - нет  1 - да :";
-	cin >> bolka;
-	if ( bolka > 1 || bolka < 0 )
+	int nub = 0, result = 0;
+	cout << "Введите число:";
+	cin >> nub;
+	if ((nub / 10) > 0)
 	{
-		cout << "Ошибка";
+		do
+		{
+			result += nub % 10;
+			nub /= 10;
+		} while ((nub / 10) > 0);
+		result += nub;
 	}
 	else
 	{
-		while ((bool)bolka == true && bolka <= 1)
-		{
-			cout << "Введите сколько прибавить(натуральное):";
-			cin >> bonus;
-			if (bonus > 0)
-			{
-				result += bonus;
-			}
-			else
-			{
-				cout << "Ошибка";
-			}
-			cout << "Прибавить число ? 0 - нет  1 - да :";
-			cin >> bolka;
-		}
-		cout << "Сумма чисел ровна:" << result;
+		result = nub;
 	}
+	cout << "Сумма ровна:" << result;
 }
 void zad5()
 {
